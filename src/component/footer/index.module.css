@@ -1,0 +1,15 @@
+.footer {
+    margin: 0 auto;
+    border-top: 1px solid #e8e8e8;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.zym {
+    font-size: 18px;
+}

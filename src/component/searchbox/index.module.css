@@ -1,0 +1,28 @@
+.search_box {
+    height: 300px;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px #888888;
+}
+
+.search_box :global .ant-space {
+    display: inline;
+    text-align: center;
+}
+
+.search_box :global .ant-input-wrapper{
+    height: 80px;
+}
+
+.search_box :global .ant-input-wrapper .ant-input-affix-wrapper{
+    height: 80px;
+}
+
+.search_box :global .ant-input-group-addon .ant-btn {
+    height: 80px;
+}
+
+.search {
+    margin-top: 100px;
+    width: 70%;
+    /* height:20%; */
+}

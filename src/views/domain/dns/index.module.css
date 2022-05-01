@@ -1,0 +1,13 @@
+.result {
+    /* height: 600px ; */
+    background-color: white;
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px #888888;
+}
+
+.table {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
