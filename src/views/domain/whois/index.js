@@ -1,11 +1,9 @@
 import styles from './index.module.css';
-import { Divider, Input, Space } from 'antd';
+import { Divider } from 'antd';
 import { Breadcrumb } from 'antd';
 import SearchBox from '../../../component/searchbox';
 import { getRequest } from '../../../request';
-import { useState, ReactDOM } from 'react';
-import { stripBasename } from 'history-with-query/PathUtils';
-const { Search } = Input;
+import { useState } from 'react';
 function Whois() {
     // const [domain, setDomain] = useState("");
     const [whois, setWhois] = useState('');

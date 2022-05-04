@@ -4,9 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './index.module.css';
 import { message as antmessage } from 'antd';
 function DNS() {
-    const ws = (useRef < WebSocket) | (null > null);
     const message = useRef([]);
-    const server = '';
     const [messageState, setMessageState] = useState([]);
     const [structData, setstructData] = useState([]);
 

@@ -8,7 +8,7 @@ import { useState } from 'react';
 import Top from './component/top';
 import Footer from './component/footer';
 function App() {
-    const [select, setSelect] = useState();
+    const [select] = useState();
     return (
         <div className="container">
             <div className="App">
