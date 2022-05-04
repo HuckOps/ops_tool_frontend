@@ -1,12 +1,11 @@
 import { Col, Popover, Row } from 'antd';
-import { Link } from 'react-router-dom';
 import styles from './index.module.css';
 import { GithubOutlined, GlobalOutlined, WechatOutlined } from '@ant-design/icons';
 import wechatImage from '../../img/wechat.jpg';
 function Top() {
     const wechat = (
         <div>
-            <img src={wechatImage} className={styles.qr_code}></img>
+            <img src={wechatImage} alt="" className={styles.qr_code}></img>
         </div>
     );
     return (
@@ -25,7 +24,7 @@ function Top() {
                         </a>
                     </span>
                     <Popover content={wechat} className={styles.header_block}>
-                        <a className={styles.link}>
+                        <a className={styles.link} href>
                             <WechatOutlined /> 微信
                         </a>
                     </Popover>

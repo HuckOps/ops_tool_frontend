@@ -1,36 +1,45 @@
 import axios from 'axios';
-import {message} from "antd";
+import { message } from 'antd';
 
 // 统一请求路径前缀
 let base = '/api';
 
 // 接口环境地址
-let API_ROOT = process.env.API_ROOT 
+// let API_ROOT = process.env.API_ROOT
 
 // 超时设定
 axios.defaults.timeout = 15000;
 // 跨域访问携带cookie
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
 
-axios.interceptors.request.use(config => {
-    return config;
-}, err => {    
-    return Promise.resolve(err);
-});
+axios.interceptors.request.use(
+    config => {
+        return config;
+    },
+    err => {
+        return Promise.resolve(err);
+    }
+);
 
 // http response 拦截器
-axios.interceptors.response.use(response => {
-    switch(response.data.code){
-        case 0:
-            return response.data.data;
-        case 1:
-            console.log(response.data.msg)
+axios.interceptors.response.use(
+    response => {
+        switch (response.data.code) {
+            case 0:
+                return response.data.data;
+            case 1:
+                console.log(response.data.msg);
+                break;
+            default:
+                console.log(response.data.msg);
+        }
+    },
+    err => {
+        message.error('请求失败，检查参数');
+        return Promise.reject(err);
+        // return Promise.resolve(err);
     }
-}, err => {
-    message.error("请求失败，检查参数");
-    return Promise.reject(err);
-    // return Promise.resolve(err);
-});
+);
 
 // get 请求
 export const getRequest = (url, params) => {
@@ -38,8 +47,7 @@ export const getRequest = (url, params) => {
         method: 'get',
         url: `${base}${url}`,
         params: params,
-        headers: {
-        }
+        headers: {},
     });
 };
 
@@ -49,17 +57,19 @@ export const postRequest = (url, params) => {
         method: 'post',
         url: `${base}${url}`,
         data: params,
-        transformRequest: [function (data) {
-            let ret = '';
-            for (let it in data) {
-                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
-            }
-            ret = ret.substring(0, ret.length - 1);
-            return ret;
-        }],
+        transformRequest: [
+            function (data) {
+                let ret = '';
+                for (let it in data) {
+                    ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+                }
+                ret = ret.substring(0, ret.length - 1);
+                return ret;
+            },
+        ],
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-        }
+        },
     });
 };
 
@@ -68,17 +78,19 @@ export const putRequest = (url, params) => {
         method: 'put',
         url: `${base}${url}`,
         data: params,
-        transformRequest: [function (data) {
-            let ret = '';
-            for (let it in data) {
-                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
-            }
-            ret = ret.substring(0, ret.length - 1);
-            return ret;
-        }],
+        transformRequest: [
+            function (data) {
+                let ret = '';
+                for (let it in data) {
+                    ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+                }
+                ret = ret.substring(0, ret.length - 1);
+                return ret;
+            },
+        ],
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-        }
+        },
     });
 };
 
@@ -87,7 +99,6 @@ export const deleteRequest = (url, params) => {
         method: 'delete',
         url: `${base}${url}`,
         params: params,
-        headers: {
-        }
+        headers: {},
     });
 };
